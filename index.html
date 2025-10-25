@@ -35,7 +35,7 @@
           <input type="text" placeholder="Search..." />
           <button type="submit">🔍</button>
         </div>
-        <button class="connect-btn">Connect Wallet</button>
+        <button class="connect-btn" id="connectBtn">Connect Wallet</button>
 
         <div class="user-area hidden" id="userArea">
           <div class="avatar">🧿</div>
@@ -43,23 +43,25 @@
             <span id="addrShort">0x123...abc</span>
           </div>
           <div class="caret">▾</div>
-        </div>
 
-        <!-- Dropdown panel -->
-        <div class="user-menu" id="userMenu" role="menu" aria-hidden="true">
-          <div class="user-menu-header">
-            <span class="label">Connected</span>
-            <span class="addr-full" id="addrFull">0x…</span>
+          <!-- Dropdown panel -->
+          <div class="user-menu" id="userMenu" role="menu" aria-hidden="true">
+            <div class="user-menu-header">
+              <span class="label">Connected</span>
+              <span class="addr-full" id="addrFull">0x…</span>
+            </div>
+            <button class="menu-item" data-action="profile">Profile</button>
+            <button class="menu-item" data-action="activity">Activity</button>
+            <button class="menu-item" data-action="settings">
+              Account Settings
+            </button>
+            <button class="menu-item" data-action="support">Support</button>
+            <hr />
+            <button class="menu-item" data-action="copy">Copy Address</button>
+            <button class="menu-item danger" data-action="logout">
+              Log Out
+            </button>
           </div>
-          <button class="menu-item" data-action="profile">Profile</button>
-          <button class="menu-item" data-action="activity">Activity</button>
-          <button class="menu-item" data-action="settings">
-            Account Settings
-          </button>
-          <button class="menu-item" data-action="support">Support</button>
-          <hr />
-          <button class="menu-item" data-action="copy">Copy Address</button>
-          <button class="menu-item danger" data-action="logout">Log Out</button>
         </div>
       </div>
     </header>

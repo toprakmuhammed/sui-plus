@@ -4,6 +4,10 @@
   font-family: 'Outfit', sans-serif;
 }
 
+/* .dev-mode .user-area {
+  display: flex !important;
+} */
+
 :root {
   --bg-dark: #0a0b1a;
   --bg-gradient: linear-gradient(135deg, #0b0430, #14052e);
@@ -215,8 +219,6 @@ body {
   background: var(--sui-blue);
   color: #fff;
 }
-
-/* Wallet */
 
 /* Kısa yardımcı */
 .hidden { display: none !important; }
@@ -520,3 +522,4 @@ nav {
     border-left: none;
   }
 }
+
