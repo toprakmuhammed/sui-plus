@@ -216,6 +216,157 @@ body {
   color: #fff;
 }
 
+/* Wallet */
+
+/* Kısa yardımcı */
+.hidden { display: none !important; }
+
+/* User area */
+.user-area {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.25rem 0.4rem;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.user-area:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 30% 30%, #1a2b6b 0%, #0b0f22 70%);
+  box-shadow: 0 0 12px rgba(0, 191, 255, 0.35);
+  font-size: 14px;
+}
+
+.address-chip {
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 191, 255, 0.25);
+  background: rgba(0, 191, 255, 0.06);
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.caret {
+  color: var(--text-muted);
+  margin-left: 2px;
+  transition: transform 0.15s ease;
+}
+
+.user-area.open .caret { transform: rotate(180deg); }
+
+/* Dropdown panel */
+.user-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  width: 260px;
+  background: rgba(15, 15, 35, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  padding: 10px;
+  z-index: 1200;
+  display: none;
+  animation: dropIn 140ms ease-out;
+}
+
+.user-area.open .user-menu {
+  display: block;
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.user-menu-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 6px;
+}
+
+.user-menu-header .label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.user-menu-header .addr-full {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.9rem;
+  color: var(--sui-blue);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Menü itemleri */
+.menu-item {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.05s ease;
+}
+
+.menu-item:hover {
+  background: rgba(0, 191, 255, 0.1);
+  color: #fff;
+}
+
+.menu-item:active {
+  transform: scale(0.99);
+}
+
+.menu-item.danger {
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 107, 107, 0.15);
+  margin-top: 4px;
+}
+
+.menu-item.danger:hover {
+  background: rgba(255, 107, 107, 0.1);
+}
+
+/* Ayırıcı */
+.user-menu hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin: 6px 0;
+}
+
+/* Küçük ekranlarda hizalama */
+@media (max-width: 500px) {
+  .user-menu {
+    right: -8px;
+    width: calc(100vw - 24px);
+  }
+}
+
+
 /* FOOTER */
 footer {
   text-align: center;
