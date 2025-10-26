@@ -75,10 +75,88 @@
       </div>
     </section>
 
-    <section id="games" class="section">
-      <h2>Games</h2>
+    <section id="games" class="games-hero">
+      <h2 class="section-title">Games</h2>
       <p>Discover a variety of games built on the Sui platform.</p>
-      <button class="secondary-btn">Explore Games</button>
+
+      <!-- DİKEY GRID: 'vertical' sınıfı ÖNEMLİ -->
+      <div class="game-hero-grid vertical">
+        <!-- 1) Suicide Loop — featured -->
+        <article class="gh-card v featured">
+          <div
+            class="gh-media"
+            style="background-image: url('images/suicide-loop.jpg')"
+          ></div>
+          <span class="gh-badge">New</span>
+          <div class="gh-content">
+            <div class="gh-title">
+              <div class="gh-title">
+                <span class="sui-gradient">Sui</span>cide Loop
+              </div>
+            </div>
+            <div class="gh-meta">Psychological • Narrative • Time-loop</div>
+            <div class="gh-actions">
+              <button
+                class="primary-btn big"
+                onclick="location.hash='#active-games'"
+              >
+                Play
+              </button>
+              <button class="btn-ghost" onclick="alert('Suicide Loop details')">
+                Details
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2) Foundry -->
+        <article class="gh-card v">
+          <div
+            class="gh-media"
+            style="background-image: url('images/foundry.jpg')"
+          ></div>
+          <span class="gh-badge">Active</span>
+          <div class="gh-content">
+            <div class="gh-title">Foundry</div>
+            <div class="gh-meta">Base-building • Strategy</div>
+            <div class="gh-actions">
+              <button
+                class="primary-btn big"
+                onclick="location.hash='#active-games'"
+              >
+                Play
+              </button>
+              <button class="btn-ghost" onclick="alert('Foundry details')">
+                Details
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3) Puffin Raiders -->
+        <article class="gh-card v">
+          <div
+            class="gh-media"
+            style="background-image: url('images/puffin.jpg')"
+          ></div>
+          <span class="gh-badge">Active</span>
+          <div class="gh-content">
+            <div class="gh-title">Puffin Raiders</div>
+            <div class="gh-meta">Action • Rogue-lite</div>
+            <div class="gh-actions">
+              <button
+                class="primary-btn big"
+                onclick="location.hash='#active-games'"
+              >
+                Play
+              </button>
+              <button class="btn-ghost" onclick="alert('Puffin details')">
+                Details
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section id="rent" class="section">
