@@ -110,6 +110,149 @@
       <button class="secondary-btn">Read Docs</button>
     </section>
 
+    <section id="profile" class="profile hidden">
+      <!-- Banner -->
+      <div class="pf-banner"></div>
+
+      <!-- Header row -->
+      <div class="pf-header container">
+        <div class="pf-user">
+          <div class="pf-avatar">🧿</div>
+          <div>
+            <div class="pf-name">RURO</div>
+            <div class="pf-sub">
+              <span id="pfAddr">0x7b1f...C001</span>
+              <button class="pf-copy" id="pfCopy">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pf-stats">
+          <div class="stat">
+            <span class="v" id="pfGames">12</span><span class="k">Games</span>
+          </div>
+          <div class="stat">
+            <span class="v" id="pfRents">7</span><span class="k">Rents</span>
+          </div>
+          <div class="stat">
+            <span class="v" id="pfListings">3</span
+            ><span class="k">Listings</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="pf-tabs container" id="pfTabs">
+        <button class="pf-tab active" data-tab="overview">Overview</button>
+        <button class="pf-tab" data-tab="active-games">Active Games</button>
+        <button class="pf-tab" data-tab="rented-items">Rented Items</button>
+        <button class="pf-tab" data-tab="listings">Listings</button>
+        <button class="pf-tab" data-tab="activity">Activity</button>
+        <button class="pf-tab" data-tab="billing">Billing</button>
+      </div>
+
+      <!-- Panels -->
+      <div class="container pf-panels">
+        <!-- Overview -->
+        <div class="pf-panel" data-panel="overview">
+          <div class="pf-grid">
+            <div class="pf-card">
+              <div class="card-title">Active Games</div>
+              <ul class="mini-list" id="pfPlaying">
+                <li>foundry</li>
+                <li>Puffin</li>
+                <li>Plasma Run</li>
+              </ul>
+            </div>
+            <div class="pf-card">
+              <div class="card-title">Recently Rented</div>
+              <ul class="mini-list" id="pfRecent">
+                <li>+9 RAPTOR</li>
+                <li>Vortex Blade</li>
+                <li>Sui Cap (Golden)</li>
+              </ul>
+            </div>
+            <div class="pf-card">
+              <div class="card-title">Plan</div>
+              <div class="plan">
+                <div class="plan-name">Plus Monthly</div>
+                <div class="plan-meta">10 game slots • renews in 12 days</div>
+                <button class="secondary-btn small" id="managePlan">
+                  Manage
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Games -->
+        <div class="pf-panel hidden" data-panel="active-games">
+          <div class="pf-grid pf-cards" id="pfGamesGrid">
+            <!-- cards doldurulacak -->
+          </div>
+        </div>
+
+        <!-- Rented Items -->
+        <div class="pf-panel hidden" data-panel="rented-items">
+          <table class="pf-table" id="pfRentedTable">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Game</th>
+                <th>Expires</th>
+                <th>Cost</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <!-- Listings -->
+        <div class="pf-panel hidden" data-panel="listings">
+          <table class="pf-table" id="pfListingsTable">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Game</th>
+                <th>Price/day</th>
+                <th>Duration</th>
+                <th>State</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <button class="primary-btn" id="newListing">New Listing</button>
+        </div>
+
+        <!-- Activity -->
+        <div class="pf-panel hidden" data-panel="activity">
+          <ul class="activity" id="pfActivity">
+            <!-- satırlar doldurulacak -->
+          </ul>
+        </div>
+
+        <!-- Billing -->
+        <div class="pf-panel hidden" data-panel="billing">
+          <div class="pf-card">
+            <div class="card-title">Subscription</div>
+            <div class="plan">
+              <div class="plan-name">Plus Monthly</div>
+              <div class="plan-meta">Next charge 12 SUI on 2025-11-28</div>
+              <div class="plan-row">
+                <button class="secondary-btn small" id="upgrade">
+                  Upgrade
+                </button>
+                <button class="secondary-btn small danger" id="cancel">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <footer>
       <p>© 2025 Sui Web3 Project • Built with 💜 on Sui Network 💧</p>
     </footer>
