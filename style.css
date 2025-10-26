@@ -770,3 +770,82 @@ nav {
     max-width:460px;
   }
 }
+
+/* --- RENT LAYOUT --- */
+.rent-section h2 { margin-bottom: .25rem; }
+.rent-wrap {
+  display: grid; gap: 22px; align-items: start;
+  grid-template-columns: 1fr 2fr;
+}
+
+/* How it works */
+.rent-how { display: grid; gap: 12px; }
+.how-card {
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  padding: 14px;
+}
+.how-ico { font-size: 22px; margin-bottom: 6px; }
+.how-title { font-weight: 800; margin-bottom: 4px; letter-spacing:.01em; }
+.how-txt { color: var(--text-muted); font-size: 14px; line-height: 1.45; }
+
+/* Toolbar */
+.rent-market { display: grid; gap: 14px; }
+.rent-toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.rent-input, .rent-select {
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.10);
+  color: var(--text-light);
+  border-radius: 10px;
+  padding: 10px 12px;
+  outline: none;
+}
+.rent-input::placeholder { color: var(--text-muted); }
+.primary-btn.small { padding: 8px 12px; border-radius: 10px; }
+
+/* Grid */
+.rent-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+/* Listing card */
+.listing-card{
+  position: relative; overflow: hidden;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.listing-card:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.35); border-color: rgba(0,191,255,.28); }
+
+.l-media{
+  aspect-ratio: 16/9;
+  background-size: cover; background-position:center;
+}
+.l-body{ padding: 12px 14px; display: grid; gap: 6px; }
+.l-title{ font-weight: 800; letter-spacing:.01em; }
+.l-meta{ color: var(--text-muted); font-size: 12px; }
+.l-row{ display:flex; justify-content:space-between; align-items:center; gap: 8px; }
+.l-price{ font-weight: 800; color: var(--sui-blue); }
+.l-actions{ display:flex; gap:8px; }
+.l-actions .secondary-btn{ padding: 7px 10px; border-radius: 10px; font-size: 13px; }
+.l-actions .primary-btn{ padding: 7px 12px; border-radius: 10px; font-size: 13px; }
+
+/* Badge */
+.l-badge{
+  position:absolute; top:10px; left:10px;
+  font-size:11px; padding:3px 7px; border-radius:8px;
+  background: rgba(0,191,255,.16); border:1px solid rgba(0,191,255,.35); color:#fff;
+}
+
+/* Responsive */
+@media (max-width: 1024px){
+  .rent-wrap{ grid-template-columns: 1fr; }
+  .rent-grid{ grid-template-columns: repeat(2, minmax(240px, 1fr)); }
+}
+@media (max-width: 640px){
+  .rent-grid{ grid-template-columns: 1fr; }
+}

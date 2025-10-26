@@ -177,6 +177,101 @@ document.getElementById("pfGamesGrid")?.addEventListener("click", (e) => {
   alert("Launching " + btn.dataset.id);
 });
 
+/* ==== RENT – örnek veriler + render ==== */
+const RENT_LISTINGS = [
+  {
+    id: "raptor",
+    title: "RAPTOR +9",
+    game: "Foundry",
+    image: "images/Raptor.jpg",
+    priceDay: 0.25, // SUI/day
+    duration: "3–7d",
+    owner: "0x7b1f...C001",
+    available: true
+  },
+  {
+    id: "vortex-blade",
+    title: "Vortex Blade +9",
+    game: "Puffin Raiders",
+    image: "images/vortex-blade.jpg",
+    priceDay: 0.18,
+    duration: "1–3d",
+    owner: "0x91a5...9F12",
+    available: true
+  },
+  {
+    id: "neon-frame",
+    title: "Neon Frame",
+    game: "Suicide Loop",
+    image: "images/suicide-item.jpg",
+    priceDay: 0.12,
+    duration: "7–14d",
+    owner: "0x3de4...A7b9",
+    available: false
+  }
+];
+
+function fillRentGameFilter(){
+  const sel = document.getElementById("rentGameFilter");
+  if (!sel) return;
+  const games = Array.from(new Set(RENT_LISTINGS.map(x => x.game)));
+  games.forEach(g => {
+    const opt = document.createElement("option");
+    opt.value = g; opt.textContent = g;
+    sel.appendChild(opt);
+  });
+}
+
+function renderRentGrid(){
+  const grid = document.getElementById("rentGrid");
+  const q = (document.getElementById("rentSearch")?.value || "").toLowerCase();
+  const game = document.getElementById("rentGameFilter")?.value || "";
+
+  const data = RENT_LISTINGS.filter(x => {
+    const matchesQ = !q || (x.title.toLowerCase().includes(q) || x.game.toLowerCase().includes(q));
+    const matchesG = !game || x.game === game;
+    return matchesQ && matchesG;
+  });
+
+  grid.innerHTML = data.map(x => `
+    <article class="listing-card">
+      <div class="l-media" style="background-image:url('${x.image}')"></div>
+      <span class="l-badge">${x.available ? "Available" : "Rented"}</span>
+      <div class="l-body">
+        <div class="l-title">${x.title}</div>
+        <div class="l-meta">${x.game} • Owner ${x.owner}</div>
+        <div class="l-row">
+          <div class="l-price">${x.priceDay} SUI/day</div>
+          <div class="l-actions">
+            <button class="secondary-btn" data-id="${x.id}" data-act="details">Details</button>
+            <button class="primary-btn"   data-id="${x.id}" data-act="rent" ${x.available ? "" : "disabled"}>Rent</button>
+          </div>
+        </div>
+        <div class="l-meta">Duration: ${x.duration}</div>
+      </div>
+    </article>
+  `).join("");
+}
+
+document.getElementById("rentSearch")?.addEventListener("input", renderRentGrid);
+document.getElementById("rentGameFilter")?.addEventListener("change", renderRentGrid);
+document.getElementById("listItemBtn")?.addEventListener("click", () => {
+  alert("MVP: List your item akışı yakında. Şimdilik mock.");
+});
+
+// Kart butonları
+document.getElementById("rentGrid")?.addEventListener("click", (e) => {
+  const btn = e.target.closest("[data-act]");
+  if (!btn) return;
+  const id = btn.dataset.id;
+  const act = btn.dataset.act;
+  if (act === "details") alert("Details: " + id);
+  if (act === "rent")    alert("Proceed to rent: " + id);
+});
+
+// İlk yükleme
+fillRentGameFilter();
+renderRentGrid();
 
 
 

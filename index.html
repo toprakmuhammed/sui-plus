@@ -159,13 +159,32 @@
       </div>
     </section>
 
-    <section id="rent" class="section">
+    <section id="rent" class="section rent-section">
       <h2>Rent</h2>
       <p>
-        Decentralized, encrypted, and persistent storage solution for your
-        assets.
+        Players can securely rent out or borrow in-game items across supported
+        titles on Sui. Flexible durations, instant access, fully on-chain.
       </p>
-      <button class="secondary-btn">Access Storage</button>
+
+      <!-- One-column MVP: only marketplace -->
+      <div class="rent-market container">
+        <div class="rent-toolbar">
+          <input
+            id="rentSearch"
+            class="rent-input"
+            type="text"
+            placeholder="Search items or games..."
+          />
+          <select id="rentGameFilter" class="rent-select">
+            <option value="">All games</option>
+          </select>
+          <button class="primary-btn small" id="listItemBtn">
+            List your item
+          </button>
+        </div>
+
+        <div id="rentGrid" class="rent-grid"><!-- cards via JS --></div>
+      </div>
     </section>
 
     <section id="listings" class="section">
