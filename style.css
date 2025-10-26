@@ -598,3 +598,61 @@ nav {
   .pf-grid, .pf-cards { grid-template-columns: 1fr; }
   .pf-tabs { flex-wrap: wrap; }
 }
+
+/* Active games section */
+
+/* === Active Games - Steam benzeri kart === */
+.game-card {
+  position: relative;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.game-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  border-color: rgba(0,191,255,.25);
+}
+
+.game-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background-size: cover;
+  background-position: center;
+}
+.game-thumb::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.55) 100%);
+}
+
+.ribbon {
+  position: absolute; top: 10px; left: 10px;
+  font-size: 12px; font-weight: 700;
+  padding: 4px 8px; border-radius: 8px;
+  background: rgba(0,191,255,.16);
+  border: 1px solid rgba(0,191,255,.35);
+  color: #fff;
+  z-index: 1;
+}
+
+.btn-play {
+  position: absolute; right: 10px; bottom: 10px;
+  border: 0; cursor: pointer;
+  padding: 8px 12px; border-radius: 10px;
+  background: var(--sui-purple);
+  color: #fff; font-weight: 700;
+  box-shadow: 0 0 22px rgba(111,0,255,.45);
+  z-index: 1;
+}
+.btn-play:hover { filter: brightness(1.05); }
+
+.game-body { padding: 12px; display: grid; gap: 4px; }
+.game-title { font-weight: 700; color: #fff; }
+.game-meta { color: var(--text-muted); font-size: 12px; }
+
+
+/* grid zaten var: .pf-cards { grid-template-columns: repeat(4, 1fr); } */
+

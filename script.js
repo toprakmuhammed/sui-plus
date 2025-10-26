@@ -103,46 +103,82 @@ userMenu.addEventListener("click", (e) => {
   // Prod varsayılanı. Sayfa açıldığında panel gizli başlasın
 setDisconnectedUI();
 
-// Basit view router - profile sayfasını aç kapa
+
+
+/* === Basit router: profil aç/kapa === */
 const sectionsToHide = ["hero", "trade", "rent", "history", "docs", "help-center"];
 const profileView = document.getElementById("profile");
 
-function showHome(){
-  profileView.classList.add("hidden");
+function showHome() {
+  profileView?.classList.add("hidden");
   sectionsToHide.forEach(id => document.getElementById(id)?.classList.remove("hidden"));
 }
-function showProfile(){
+
+function showProfile() {
   sectionsToHide.forEach(id => document.getElementById(id)?.classList.add("hidden"));
-  profileView.classList.remove("hidden");
-  // cüzdan adresini profile header'a yansıt
-  document.getElementById("profileAddr").textContent = addrFull.textContent || "0x…";
+  profileView?.classList.remove("hidden");
+  // cüzdan adresini header'a yaz
+  const pfAddrEl = document.getElementById("pfAddr");
+  if (pfAddrEl) pfAddrEl.textContent = addrFull.textContent || "0x…";
 }
 
-// hash route
-function handleRoute(){
+function handleRoute() {
   if (location.hash === "#profile") showProfile();
   else showHome();
 }
 window.addEventListener("hashchange", handleRoute);
 handleRoute();
 
-// Tabs
-const tabs = document.getElementById("profileTabs");
-tabs.addEventListener("click", (e) => {
-  const btn = e.target.closest(".tab");
-  if (!btn) return;
-  tabs.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-  btn.classList.add("active");
-  const target = btn.dataset.tab;
-  document.querySelectorAll(".panel").forEach(p => {
-    p.classList.toggle("hidden", p.dataset.panel !== target);
+/* === Profile tabs === */
+const pfTabs = document.getElementById("pfTabs");
+const pfPanels = document.querySelectorAll(".pf-panel");
+
+function showProfilePanel(key) {
+  pfPanels.forEach(p => p.classList.toggle("hidden", p.dataset.panel !== key));
+  pfTabs?.querySelectorAll(".pf-tab").forEach(t => {
+    t.classList.toggle("active", t.dataset.tab === key);
   });
+  if (key === "active-games") renderActiveGames();
+}
+
+pfTabs?.addEventListener("click", (e) => {
+  const btn = e.target.closest(".pf-tab");
+  if (!btn) return;
+  showProfilePanel(btn.dataset.tab);
 });
 
-// Profil adresini kopyala
-document.getElementById("copyProfileAddr").addEventListener("click", () => {
-  navigator.clipboard.writeText(addrFull.textContent);
+/* === Active Games: veri ve render === */
+const activeGames = [
+  { id: "foundry", title: "Foundry",       image: "images/foundry.jpg", hours: 12.4, renewsIn: "12 days" },
+  { id: "puffin",   title: "Puffin Raiders", image: "images/puffin.jpg",   hours: 5.1,  renewsIn: "7 days"  }
+];
+
+function renderActiveGames() {
+  const grid = document.getElementById("pfGamesGrid");
+  if (!grid) return;
+  grid.innerHTML = activeGames.map(g => `
+    <div class="game-card">
+      <div class="game-thumb" style="background-image:url('${g.image}');">
+        <span class="ribbon">Active</span>
+        <button class="btn-play" data-id="${g.id}">Play</button>
+      </div>
+      <div class="game-body">
+        <div class="game-title">${g.title}</div>
+        <div class="game-meta">${g.hours} h played • renews in ${g.renewsIn}</div>
+      </div>
+    </div>
+  `).join("");
+}
+
+// Play butonu demo
+document.getElementById("pfGamesGrid")?.addEventListener("click", (e) => {
+  const btn = e.target.closest(".btn-play");
+  if (!btn) return;
+  alert("Launching " + btn.dataset.id);
 });
+
+
+
 
 
 });
