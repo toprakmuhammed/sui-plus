@@ -2,23 +2,52 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Sui Plus</title>
+    <meta
+      name="description"
+      content="Rent, list, and play Web3 game items on Sui. Fast, secure, on-chain."
+    />
+    <meta name="theme-color" content="#0a0b1a" />
+
+    <!-- Favicon / Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/suiplus.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/suiplus.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/suiplus.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Sui Plus" />
+    <meta
+      property="og:description"
+      content="Rent, list, and play Web3 game items on Sui."
+    />
+    <meta property="og:image" content="images/og-image-1200x630.png" />
+    <meta property="og:url" content="https://example.com/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Sui Plus" />
+    <meta
+      name="twitter:description"
+      content="Rent, list, and play Web3 game items on Sui."
+    />
+    <meta name="twitter:image" content="images/og-image-1200x630.png" />
+
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <header class="navbar">
-      <div class="logo">
+      <a class="logo" href="#hero" aria-label="Go to home">
         <img src="images/suiplus.png" alt="suiplus logo" />
         <span>Sui</span>
-      </div>
+      </a>
 
       <nav>
         <ul class="nav-links">
           <li><a href="#games">GAMES</a></li>
           <li><a href="#rent">RENT</a></li>
-          <li><a href="#listings">LISTINGS</a></li>
           <li><a href="#pricing">PRICING</a></li>
           <li><a href="#docs">DOCS</a></li>
           <li><a href="#help-center">HELP CENTER</a></li>
@@ -70,7 +99,7 @@
     <section id="hero">
       <div class="hero-content">
         <h1>Build the Future with Sui</h1>
-        <p>zkLogin • Walrus • Rent powered by the next-gen Web3 ecosystem</p>
+        <p>Storage • Rentals • Built on the next-gen Sui ecosystem</p>
         <button class="primary-btn">Explore dApp</button>
       </div>
     </section>
@@ -187,13 +216,6 @@
       </div>
     </section>
 
-    <section id="listings" class="section">
-      <h2>Listings</h2>
-      <p>
-        Lease digital assets and pay only for what you use — fast, secure, fair.
-      </p>
-      <button class="secondary-btn">Start Renting</button>
-    </section>
     <section id="pricing" class="section pricing">
       <h2>Pricing</h2>
       <p>Choose a simple plan that unlocks all games.</p>
@@ -246,15 +268,151 @@
       </div>
     </section>
 
-    <section id="docs" class="section">
+    <section id="docs" class="section docs">
       <h2>Documentation</h2>
-      <p>Learn how to deploy, integrate and scale your dApp on Sui Network.</p>
-      <button class="secondary-btn">Read Docs</button>
+      <p>
+        Everything you need to build on Sui Plus: quickstart, SDK usage, and
+        on-chain contracts.
+      </p>
+
+      <div class="docs-cards">
+        <a
+          class="doc-card"
+          href="https://github.com/guney61/suiplus/blob/main/README.md#quickstart"
+          target="_blank"
+          rel="noopener"
+        >
+          <h3>Quickstart</h3>
+          <p>Install, configure, and run the dApp locally in minutes.</p>
+          <span>Read on GitHub →</span>
+        </a>
+
+        <a
+          class="doc-card"
+          href="https://github.com/guney61/suiplus/blob/main/README.md#sdk--api"
+          target="_blank"
+          rel="noopener"
+        >
+          <h3>SDK / API</h3>
+          <p>Core methods for auth, listings, and rentals with code samples.</p>
+          <span>Read on GitHub →</span>
+        </a>
+
+        <a
+          class="doc-card"
+          href="https://github.com/guney61/suiplus/blob/main/README.md#contracts"
+          target="_blank"
+          rel="noopener"
+        >
+          <h3>Contracts</h3>
+          <p>
+            Addresses, ABIs, and notes for deploying on Sui mainnet/testnet.
+          </p>
+          <span>Read on GitHub →</span>
+        </a>
+      </div>
     </section>
-    <section id="help-center" class="section">
+
+    <section id="help-center" class="section help">
       <h2>Help Center</h2>
-      <p>Learn how to deploy, integrate and scale your dApp on Sui Network.</p>
-      <button class="secondary-btn">Read Docs</button>
+      <p>
+        Answers to common questions, ways to reach us, and live service status.
+      </p>
+
+      <div class="help-search">
+        <input
+          type="text"
+          placeholder="Search FAQs…"
+          oninput="document.querySelectorAll('.help-faq details').forEach(d=>{const q=d.querySelector('summary').textContent.toLowerCase(); d.style.display = q.includes(this.value.toLowerCase()) ? '' : 'none';})"
+        />
+      </div>
+
+      <div class="help-grid">
+        <a class="help-card" href="#help-center-faq">
+          <div class="help-ico">❓</div>
+          <h3>Frequently Asked Questions</h3>
+          <p>Wallet, renting, listings, payments, and more.</p>
+          <span>Jump to FAQs →</span>
+        </a>
+
+        <a
+          class="help-card"
+          href="https://github.com/guney61/suiplus/issues"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="help-ico">📩</div>
+          <h3>Contact Support</h3>
+          <p>Open a GitHub issue for bugs or feature requests.</p>
+          <span>Open an issue →</span>
+        </a>
+
+        <a
+          class="help-card"
+          href="https://status.sui.io/"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="help-ico">📈</div>
+          <h3>Network Status</h3>
+          <p>Check Sui network health and incident history.</p>
+          <span>View status →</span>
+        </a>
+      </div>
+
+      <div id="help-center-faq" class="help-faq">
+        <h3>FAQs</h3>
+
+        <details>
+          <summary>How do I connect my wallet?</summary>
+          <div>
+            Click <b>Connect Wallet</b> in the header. We support standard Sui
+            wallets (e.g., Suiet, Ethos, Surf). You’ll review permissions before
+            proceeding.
+          </div>
+        </details>
+
+        <details>
+          <summary>How does renting an item work?</summary>
+          <div>
+            Select an item in <b>Rent</b>, choose <b>Rent</b>, confirm on-chain,
+            and the item becomes usable instantly for the selected duration. It
+            returns automatically when time ends.
+          </div>
+        </details>
+
+        <details>
+          <summary>What are the fees?</summary>
+          <div>
+            Listings show a daily price in SUI. Network fees apply per on-chain
+            action. There’s no hidden platform fee in the MVP.
+          </div>
+        </details>
+
+        <details>
+          <summary>Can I cancel a rental early?</summary>
+          <div>
+            Early returns are not supported in MVP. The item auto-returns at the
+            end of the rental period.
+          </div>
+        </details>
+
+        <details>
+          <summary>How do I list my own item?</summary>
+          <div>
+            Use <b>List your item</b> in the Rent toolbar. Choose the game, set
+            the daily price and duration, then confirm on-chain.
+          </div>
+        </details>
+
+        <details>
+          <summary>Is my data secure?</summary>
+          <div>
+            Ownership and rentals are enforced on-chain. We don’t custody your
+            keys; wallet providers handle authentication and signing.
+          </div>
+        </details>
+      </div>
     </section>
 
     <section id="profile" class="profile hidden">

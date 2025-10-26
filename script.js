@@ -208,6 +208,16 @@ const RENT_LISTINGS = [
     duration: "7–14d",
     owner: "0x3de4...A7b9",
     available: false
+  },
+  {
+    id: "neon-frame",
+    title: "Master Ball",
+    game: "Suimon - Season 1 (Pallet Town)",
+    image: "images/pokeball.jpg",
+    priceDay: 0.12,
+    duration: "7–14d",
+    owner: "0x3de4...A7b9",
+    available: false
   }
 ];
 
